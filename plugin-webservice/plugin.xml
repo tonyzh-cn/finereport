@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugin>
+    <id>com.fr.plugin.demo.init</id>
+    <name><![CDATA[demo插件]]></name>
+    <active>yes</active>
+    <version>1.2</version>
+    <env-version>8.0</env-version>
+    <jartime>2015-10-19</jartime>
+    <vendor>^_^</vendor>
+    <description><![CDATA[demo]]></description>
+    <change-notes><![CDATA[]]></change-notes>
+    <extra-report/>
+    <extra-designer>
+        <TableDataDefineProvider class="com.fr.plugin.ws.WebServiceTableDataDefine"/>
+        <ServerTableDataDefineProvider class="com.fr.plugin.ws.WebServiceTableDataDefine"/>
+    </extra-designer>
+
+</plugin>
