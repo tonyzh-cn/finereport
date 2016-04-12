@@ -6,7 +6,7 @@ import com.fr.stable.fun.Level;
 import java.awt.event.AWTEventListener;
 
 /**
- * Created by zack on 2015/8/17.
+ *  Created by zack on 2015/8/17.
  */
 public interface GlobalListenerProvider extends Level{
 
