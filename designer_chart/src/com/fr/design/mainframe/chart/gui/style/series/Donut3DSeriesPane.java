@@ -13,7 +13,6 @@ public class Donut3DSeriesPane extends AbstractPlotSeriesPane {
         super(parent, plot);
     }
 
-
     /**
      * 在每个不同类型Plot, 得到不同类型的属性. 比如: 柱形的风格, 折线的线型曲线.
      */
