@@ -750,7 +750,7 @@ public class ExtraDesignClassManager extends XMLFileManager implements ExtraDesi
 
     private void readLevelTag(String tagName, String className, PluginSimplify simplify) {
         try {
-            //实现了Level接口的, 可以直接newInstance子类的
+            // 实现了Level接口的, 可以直接newInstance子类的
             Class<?> clazz = loader.loadClass(className);
             Authorize authorize = clazz.getAnnotation(Authorize.class);
             if (authorize != null) {
@@ -758,9 +758,9 @@ public class ExtraDesignClassManager extends XMLFileManager implements ExtraDesi
             }
 
             Level impl = (Level) clazz.newInstance();
-            //控件
+            // 控件
             readWidgetRelated(tagName, impl, simplify);
-            //数据集, 数据连接
+            // 数据集, 数据连接
             readTableDataRelated(tagName, className, simplify);
             if (tagName.equals(ParameterWidgetOptionProvider.XML_TAG)) {
                 addParameterWidgetOption(impl, simplify);

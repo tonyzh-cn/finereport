@@ -37,7 +37,7 @@ public class DonutIndependentChartInterface extends AbstractIndependentChartUIWi
     public BasicBeanPane<Plot> getPlotSeriesPane(ChartStylePane parent, Plot plot){
         return plot.isSupport3D() ? new Donut3DSeriesPane(parent, plot) : new Donut2DSeriesPane(parent, plot);
     }
-
+    
     public ConditionAttributesPane getPlotConditionPane(Plot plot){
         return plot.isSupport3D() ? new DataSeriesConditionPane() : new Donut2DPlotDataSeriesConditionPane();
     }
