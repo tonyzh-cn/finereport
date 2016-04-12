@@ -124,17 +124,7 @@ public class ExtraDesignClassManager extends XMLFileManager implements ExtraDesi
 
     private Set<HyperlinkProvider> hyperlinkGroupProviders;
 
-    private DesignerEnvProcessor envProcessor;
-
-
-    public DesignerEnvProcessor getEnvProcessor() {
-        return envProcessor;
-    }
-
-    public void setEnvProcessor(Level level, PluginSimplify simplify) throws Exception {
-        validAPILevel(level, DesignerEnvProcessor.CURRENT_LEVEL, simplify.getPluginName());
-        envProcessor = (DesignerEnvProcessor) level;
-    }
+    private GridUIProcessor gridUIProcessor;
 
     public void addSupportDesignApps(Level level, PluginSimplify simplify) throws Exception {
         validAPILevel(level, App.CURRENT_LEVEL, simplify.getPluginName());
@@ -169,6 +159,15 @@ public class ExtraDesignClassManager extends XMLFileManager implements ExtraDesi
             return new GlobalListenerProvider[0];
         }
         return globalListenerProviders.toArray(new GlobalListenerProvider[globalListenerProviders.size()]);
+    }
+
+    public GridUIProcessor getGridUIProcessor() {
+        return gridUIProcessor;
+    }
+
+    public void setGridUIProcessor(Level level, PluginSimplify simplify) throws Exception {
+        validAPILevel(level, GridUIProcessor.CURRENT_LEVEL, simplify.getPluginName());
+        gridUIProcessor = (GridUIProcessor) level;
     }
 
     /**
@@ -751,7 +750,7 @@ public class ExtraDesignClassManager extends XMLFileManager implements ExtraDesi
 
     private void readLevelTag(String tagName, String className, PluginSimplify simplify) {
         try {
-            //实现了Level接口的, 可以直接newInstance子类的
+            // 实现了Level接口的, 可以直接newInstance子类的
             Class<?> clazz = loader.loadClass(className);
             Authorize authorize = clazz.getAnnotation(Authorize.class);
             if (authorize != null) {
@@ -759,9 +758,9 @@ public class ExtraDesignClassManager extends XMLFileManager implements ExtraDesi
             }
 
             Level impl = (Level) clazz.newInstance();
-            //控件
+            // 控件
             readWidgetRelated(tagName, impl, simplify);
-            //数据集, 数据连接
+            // 数据集, 数据连接
             readTableDataRelated(tagName, className, simplify);
             if (tagName.equals(ParameterWidgetOptionProvider.XML_TAG)) {
                 addParameterWidgetOption(impl, simplify);
@@ -795,8 +794,8 @@ public class ExtraDesignClassManager extends XMLFileManager implements ExtraDesi
                 addHyperlinkProvider(impl, simplify);
             } else if (tagName.equals(App.MARK_STRING)) {
                 addSupportDesignApps(impl, simplify);
-            } else if (tagName.equals(DesignerEnvProcessor.XML_TAG)) {
-                setEnvProcessor(impl, simplify);
+            } else if (tagName.equals(GridUIProcessor.MARK_STRING)) {
+                setGridUIProcessor(impl, simplify);
             }
         } catch (PluginInvalidLevelException e) {
             PluginMessage.remindUpdate(e.getMessage());
