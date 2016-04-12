@@ -415,7 +415,7 @@ public class GridUI extends ComponentUI{
 
         paintDetailedCellElements(g2d, cells, tmpCellElement, reportPane, selectedCellElement, hideWidth, hideHeight, oldClip, report);
         paintBorder(g2d, tmpCellElement, report);
-        paintFatherLeft(g2d, tmpCellElement, report);
+        paintFatherLeft(g2d, selectedCellElement, report);
     }
 
     private void paintDetailedCellElements(Graphics2D g2d, Iterator cells, TemplateCellElement tmpCellElement, ElementCasePane reportPane,
