@@ -9,7 +9,7 @@ import javax.swing.plaf.ComponentUI;
  *
  * Created by Administrator on 2016/4/11/0011.
  */
-public interface GridUIProcessor extends Level {
+public interface GridUIProcessor extends Level{
 
     String MARK_STRING = "GridUIProcessor";
 
