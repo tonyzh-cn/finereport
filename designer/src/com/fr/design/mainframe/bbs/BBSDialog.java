@@ -14,6 +14,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import netscape.javascript.JSObject;
 
 import javax.swing.*;
 
@@ -30,8 +31,8 @@ public class BBSDialog extends UIDialog {
 
     private static final int WIDTH = 600;
     private static final int HEIGHT = 400;
-    private static final int OUTER_WIDTH = 605;
-    private static final int OUTER_HEIGHT = 428;
+    private static final int OUTER_WIDTH = 600;
+    private static final int OUTER_HEIGHT = 400;
 
 
     private JFXPanel jfxPanel;
@@ -39,7 +40,7 @@ public class BBSDialog extends UIDialog {
 
     public BBSDialog(Frame parent) {
         super(parent);
-        //setUndecorated(true);
+        setUndecorated(true);
         JPanel panel = (JPanel) getContentPane();
         initComponents(panel);
         setSize(new Dimension(OUTER_WIDTH, OUTER_HEIGHT));
@@ -105,6 +106,8 @@ public class BBSDialog extends UIDialog {
                     @Override
                     public void changed(ObservableValue<? extends Worker.State> observable, Worker.State oldValue, Worker.State newValue) {
                         if (newValue == Worker.State.SUCCEEDED){
+                            JSObject obj = (JSObject) eng.executeScript("window");
+                            obj.setMember("BBSWebBridge", BBSDialog.this);
                             setVisible(true);
                         }
                     }
@@ -112,7 +115,7 @@ public class BBSDialog extends UIDialog {
             }
         });
     }
-    
+
     // 在本地浏览器里打开url
     private void openUrlAtLocalWebBrowser(WebEngine eng,String url){
         if(Desktop.isDesktopSupported()){
@@ -136,6 +139,14 @@ public class BBSDialog extends UIDialog {
         }
     }
 
+    /**
+     * 提供给web页面调用的关闭窗口
+     */
+    public void closeWindow() {
+        this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        this.setVisible(false);
+        this.dispose();
+    }
     /**
      * 略
      */
