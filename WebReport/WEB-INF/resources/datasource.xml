@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatasourceManager xmlVersion="20151125" releaseVersion="8.0.0">
+    <TableDataMap>
+        <TableData name="程序1" class="com.fr.data.impl.ClassTableData">
+            <ClassTableDataAttr className=""/>
+        </TableData>
+        <TableData name="CopyOf程序1" class="com.fr.data.impl.ClassTableData">
+            <ClassTableDataAttr className=""/>
+        </TableData>
+        <TableData name="内置数据集2" class="com.fr.data.impl.EmbeddedTableData">
+            <Parameters/>
+            <DSName>
+                <![CDATA[]]></DSName>
+            <ColumnNames>
+                <![CDATA[]]></ColumnNames>
+            <ColumnTypes>
+                <![CDATA[]]></ColumnTypes>
+        </TableData>
+        <TableData name="内置数据集3" class="com.fr.data.impl.EmbeddedTableData">
+            <Parameters/>
+            <DSName>
+                <![CDATA[]]></DSName>
+            <ColumnNames>
+                <![CDATA[]]></ColumnNames>
+            <ColumnTypes>
+                <![CDATA[]]></ColumnTypes>
+        </TableData>
+    </TableDataMap>
+</DatasourceManager>

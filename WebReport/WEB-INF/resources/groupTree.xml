@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GroupTreeXMLManager xmlVersion="20151125" releaseVersion="8.0.0"> 
+  <GroupTree name="WorkBook4"> 
+    <group name="group1"> 
+      <tabledata name="ds1"/>  
+      <tabledata name="程序2"/> 
+    </group>  
+    <group name="g"/>  
+    <tabledata name="程序3"/>
+  </GroupTree>  
+  <GroupTree name="WorkBook3"> 
+    <group name="group1"/>  
+    <group name="group2"/> 
+  </GroupTree> 
+</GroupTreeXMLManager>
